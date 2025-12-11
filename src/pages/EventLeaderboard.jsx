@@ -42,27 +42,49 @@ const PodiumItem = ({ item }) => {
   const positionClass = isWinner ? 'order-2 -mt-6 z-10 relative' : `order-${order} translate-y-4`;
 
   return (
-    <div className={`flex flex-col items-center gap-3 ${sizeClass} ${positionClass}`}>
+    <div className={`flex flex-col items-center gap-2.5 ${sizeClass} ${positionClass}`}>
       {isWinner && (
-        <div className="absolute -top-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <span className="material-symbols-outlined text-yellow-400 text-3xl drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]">crown</span>
+        <div className="absolute -top-7 left-1/2 -translate-x-1/2 animate-bounce">
+          <span className="material-symbols-outlined text-yellow-400 text-[28px] drop-shadow-[0_0_12px_rgba(250,204,21,0.6)]">
+            crown
+          </span>
         </div>
       )}
-      <div className={`relative group w-full aspect-[3/4] rounded-2xl overflow-hidden bg-card-dark ${isWinner ? 'border-2 border-primary shadow-[0_0_30px_rgba(43,238,121,0.15)]' : 'border border-white/10 shadow-lg'}`}>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-        <img alt={name} className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ${!isWinner && 'opacity-80'}`} src={imageUrl} />
+      <div className={`relative group w-full aspect-[3/4] rounded-2xl overflow-hidden bg-card-dark transition-all duration-300 ${
+        isWinner 
+          ? 'border-2 border-primary shadow-neon' 
+          : 'border border-white/10 shadow-card hover:shadow-md'
+      }`}>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent z-10"></div>
+        <img 
+          alt={name} 
+          className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
+            !isWinner && 'opacity-85'
+          }`} 
+          src={imageUrl} 
+        />
         <div className="absolute top-2 left-2 z-20">
-          <div className={`rounded-full flex items-center justify-center ${isWinner ? 'w-10 h-10 bg-primary shadow-lg' : 'w-8 h-8 bg-white/10 backdrop-blur-md border border-white/20'}`}>
-            <span className={`font-bold ${isWinner ? 'text-base text-black' : 'text-sm text-white'}`}>#{rank}</span>
+          <div className={`rounded-full flex items-center justify-center ${
+            isWinner 
+              ? 'w-9 h-9 bg-primary shadow-elevated' 
+              : 'w-8 h-8 bg-white/10 backdrop-blur-md border border-white/20'
+          }`}>
+            <span className={`font-bold ${isWinner ? 'text-sm text-black' : 'text-xs text-white'}`}>
+              #{rank}
+            </span>
           </div>
         </div>
         <div className="absolute bottom-2 left-0 right-0 text-center z-20 px-1">
-          <span className={`font-bold drop-shadow-md text-primary ${isWinner ? 'text-2xl' : 'text-lg'}`}>{score}</span>
+          <span className={`font-bold drop-shadow-md text-primary ${isWinner ? 'text-xl' : 'text-base'}`}>
+            {score}
+          </span>
         </div>
       </div>
       <div className="text-center">
-        <p className={`font-bold truncate w-full ${isWinner ? 'text-base text-primary' : 'text-sm'}`}>{name}</p>
-        <p className="text-xs text-white/50">{date}</p>
+        <p className={`font-bold truncate w-full ${isWinner ? 'text-[15px] text-primary' : 'text-sm text-white'}`}>
+          {name}
+        </p>
+        <p className="text-xs text-white/50 font-medium">{date}</p>
       </div>
     </div>
   );
@@ -82,7 +104,7 @@ const LeaderboardItem = ({ item }) => {
   };
 
   return (
-    <div className="group relative flex items-center gap-4 bg-card-surface hover:bg-white/10 border border-white/5 p-3 rounded-2xl transition-all duration-300">
+    <div className="group relative flex items-center gap-4 bg-card-surface hover:bg-white/8 border border-white/8 p-3 rounded-2xl transition-all duration-200 hover:shadow-md">
       <div className="flex w-8 shrink-0 flex-col items-center justify-center gap-1">
         <span className="text-lg font-bold text-white/40">{rank}</span>
         <span className={`material-symbols-outlined text-[16px] ${trendColor[trend]}`}>{trendIcon[trend]}</span>
@@ -113,56 +135,62 @@ const EventLeaderboard = () => {
   return (
     <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary selection:text-black min-h-screen">
       <div className="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden pb-24 max-w-md mx-auto">
-        <header className="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+        <header className="sticky top-0 z-50 bg-background-light/98 dark:bg-background-dark/98 backdrop-blur-lg border-b border-white/8 shadow-sm">
           <div className="flex items-center p-4 justify-between">
             <div className="w-10"></div>
-            <h1 className="text-xl font-bold tracking-tight text-center">Classifica Serate</h1>
-            <button className="flex w-10 h-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors">
-              <span className="material-symbols-outlined text-primary" style={{ fontSize: '24px' }}>filter_list</span>
+            <h1 className="text-lg font-bold tracking-tight text-center">Classifica Serate</h1>
+            <button className="flex w-10 h-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/8 transition-all duration-200 active:scale-95">
+              <span className="material-symbols-outlined text-primary" style={{ fontSize: '22px' }}>filter_list</span>
             </button>
           </div>
-          <div className="flex gap-3 px-4 pb-4 overflow-x-auto no-scrollbar">
+          <div className="flex gap-2.5 px-4 pb-4 overflow-x-auto no-scrollbar">
             {filters.map(filter => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`flex h-9 shrink-0 items-center justify-center rounded-full px-5 transition-transform active:scale-95 ${activeFilter === filter ? 'bg-primary shadow-[0_0_15px_rgba(43,238,121,0.3)]' : 'bg-card-surface border border-white/5'}`}
+                className={`flex h-9 shrink-0 items-center justify-center rounded-full px-5 transition-all duration-200 active:scale-95 ${
+                  activeFilter === filter 
+                    ? 'bg-primary shadow-elevated' 
+                    : 'bg-card-surface border border-white/8 hover:bg-white/5'
+                }`}
               >
-                <p className={`text-sm font-bold ${activeFilter === filter ? 'text-black' : 'text-white/70'}`}>{filter}</p>
+                <p className={`text-[13px] font-semibold ${activeFilter === filter ? 'text-black' : 'text-white/70'}`}>
+                  {filter}
+                </p>
               </button>
             ))}
           </div>
         </header>
 
         <section className="mt-6 px-4">
-          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary">trophy</span>
+          <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[24px]">trophy</span>
             Il Podio
           </h2>
-          <div className="flex items-end justify-center gap-3 w-full max-w-md mx-auto relative z-0">
+          <div className="flex items-end justify-center gap-2.5 w-full max-w-md mx-auto relative z-0">
             {podiumData.map(item => <PodiumItem key={item.rank} item={item} />)}
           </div>
         </section>
 
         <section className="mt-10 px-4 flex-1">
-          <h2 className="text-lg font-bold mb-4 px-1 text-white/90">Classifica Completa</h2>
+          <h2 className="text-base font-bold mb-4 px-1 text-white/90">Classifica Completa</h2>
           <div className="flex flex-col gap-3">
             {listData.map(item => <LeaderboardItem key={item.rank} item={item} />)}
           </div>
         </section>
 
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-sm">
-          <nav className="flex items-center justify-between bg-[#1A2C23]/90 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 shadow-2xl">
-            <button className="flex flex-col items-center justify-center gap-1 text-white/50 hover:text-white transition-colors">
-              <span className="material-symbols-outlined text-2xl">home</span>
-              <span className="text-[10px] font-medium">Home</span>
+          <nav className="flex items-center justify-between bg-[#1A2C23]/95 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 shadow-elevated">
+            <button className="flex flex-col items-center justify-center gap-1 text-white/50 hover:text-white transition-all duration-200 active:scale-95">
+              <span className="material-symbols-outlined text-[22px]">home</span>
+              <span className="text-[10px] font-semibold">Home</span>
             </button>
-            <button className="flex items-center justify-center w-12 h-12 bg-primary rounded-full text-black shadow-[0_0_15px_rgba(43,238,121,0.4)] -mt-8 border-4 border-[#102217] transform transition hover:scale-105 active:scale-95">
-              <span className="material-symbols-outlined text-3xl">add</span>
+            <button className="flex items-center justify-center w-12 h-12 bg-primary rounded-full text-black shadow-neon -mt-8 border-4 border-[#102217] transform transition-all duration-200 hover:scale-105 active:scale-95">
+              <span className="material-symbols-outlined text-[28px]">add</span>
             </button>
             <button className="flex flex-col items-center justify-center gap-1 text-primary">
-              <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>leaderboard</span>
-              <span className="text-[10px] font-medium">Classifica</span>
+              <span className="material-symbols-outlined text-[22px]" style={{ fontVariationSettings: "'FILL' 1" }}>leaderboard</span>
+              <span className="text-[10px] font-semibold">Classifica</span>
             </button>
           </nav>
         </div>

@@ -39,12 +39,14 @@ const cardsData = [
 const VotingCard = ({ card }) => {
   const [sliderValue, setSliderValue] = useState(card.initialValue || 5);
 
-  const containerClasses = `relative group rounded-xl ${card.isCompleted ? 'p-1 bg-gradient-to-b from-primary/20 to-transparent' : ''
-    } ${card.isActive ? 'p-1 bg-gradient-to-b from-white/10 to-transparent' : ''} ${card.isLocked ? 'opacity-60 grayscale-[0.5]' : ''
-    }`;
+  const containerClasses = `relative group rounded-2xl transition-all duration-300 ${
+    card.isCompleted ? 'p-1 bg-gradient-to-b from-primary/15 to-transparent' : ''
+  } ${card.isActive ? 'p-1 bg-gradient-to-b from-white/8 to-transparent' : ''} ${
+    card.isLocked ? 'opacity-60 grayscale-[0.5]' : ''
+  }`;
 
-  const cardBaseClasses = 'flex flex-col items-stretch justify-start rounded-xl shadow-lg bg-card-dark overflow-hidden border border-white/5';
-  const activeRing = card.isActive ? 'ring-2 ring-primary ring-offset-2 ring-offset-background-dark' : '';
+  const cardBaseClasses = 'flex flex-col items-stretch justify-start rounded-2xl shadow-card bg-card-dark overflow-hidden border border-white/8';
+  const activeRing = card.isActive ? 'ring-2 ring-primary ring-offset-2 ring-offset-background-dark shadow-elevated' : '';
 
   if (card.isLocked) {
     return (
@@ -57,9 +59,9 @@ const VotingCard = ({ card }) => {
           <div className="p-5 flex items-center justify-between">
             <div className="flex flex-col gap-1">
               <h3 className="text-white text-lg font-bold">{card.title}</h3>
-              <p className="text-[#9db9a8] text-sm">{card.description}</p>
+              <p className="text-[#9db9a8] text-sm font-medium">{card.description}</p>
             </div>
-            <span className="material-symbols-outlined text-white/20 text-[32px]">lock</span>
+            <span className="material-symbols-outlined text-white/15 text-[30px]">lock</span>
           </div>
         </div>
       </div>
@@ -109,8 +111,8 @@ const VotingCard = ({ card }) => {
 
           {card.isActive && (
             <>
-              <div className="flex flex-col gap-4 bg-surface-dark/50 p-4 rounded-lg border border-white/5">
-                <div className="flex justify-between text-sm font-medium text-white/80 uppercase tracking-wider">
+              <div className="flex flex-col gap-4 bg-surface-dark/40 p-4 rounded-xl border border-white/8">
+                <div className="flex justify-between text-[13px] font-semibold text-white/75 uppercase tracking-wide">
                   <span>Noia Mortale</span>
                   <span className="text-primary">Epico</span>
                 </div>
@@ -129,12 +131,12 @@ const VotingCard = ({ card }) => {
                   </span>
                 </div>
               </div>
-              <div className="flex items-center gap-3 justify-between pt-2 border-t border-white/5">
-                <button className="flex items-center gap-2 text-[#9db9a8] hover:text-white transition-colors text-sm font-medium px-2 py-2">
-                  <span className="material-symbols-outlined text-[20px]">comment</span>
+              <div className="flex items-center gap-3 justify-between pt-3 border-t border-white/8">
+                <button className="flex items-center gap-2 text-[#9db9a8] hover:text-white transition-all duration-200 text-sm font-medium px-2 py-2 rounded-lg hover:bg-white/5 active:scale-95">
+                  <span className="material-symbols-outlined text-[19px]">comment</span>
                   Aggiungi Nota
                 </button>
-                <button className="flex cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-primary hover:bg-green-400 text-background-dark text-sm font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(43,238,121,0.3)] transition-all transform active:scale-95">
+                <button className="flex cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-primary hover:bg-green-400 text-background-dark text-sm font-bold tracking-wide shadow-elevated hover:shadow-neon transition-all duration-200 active:scale-95">
                   Gioca Carta
                 </button>
               </div>
