@@ -94,7 +94,7 @@ const VotingCard = ({ card }) => {
           <div className="flex justify-between items-start">
             <div>
               <h3 className={`text-white font-bold leading-tight ${card.isActive ? 'text-2xl' : 'text-xl'}`}>{card.title}</h3>
-              <p className="text-[#9db9a8] mt-1 ${card.isActive ? 'text-base' : 'text-sm'}">{card.description}</p>
+              <p className={`text-[#9db9a8] mt-1 ${card.isActive ? 'text-base' : 'text-sm'}`}>{card.description}</p>
             </div>
             {card.isCompleted && <div className="text-3xl font-bold text-primary">{card.score.toFixed(1)}</div>}
           </div>

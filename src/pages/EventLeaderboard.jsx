@@ -79,7 +79,7 @@ const LeaderboardItem = ({ item }) => {
     up: 'text-primary',
     down: 'text-white/20',
     same: 'text-white/20',
-  }
+  };
 
   return (
     <div className="group relative flex items-center gap-4 bg-card-surface hover:bg-white/10 border border-white/5 p-3 rounded-2xl transition-all duration-300">
