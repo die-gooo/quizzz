@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const avatars = [
   {
@@ -101,6 +102,7 @@ const AvatarCard = ({ avatar, isSelected, onSelect }) => {
 
 const AvatarSelection = () => {
   const [selectedAvatarId, setSelectedAvatarId] = useState(2);
+  const navigate = useNavigate();
 
   return (
     <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary selection:text-background-dark min-h-screen">
@@ -138,7 +140,10 @@ const AvatarSelection = () => {
         </div>
 
         <div className="fixed bottom-0 left-0 right-0 z-40 bg-gradient-to-t from-background-dark via-background-dark/98 to-transparent pt-8 pb-6 px-5 max-w-md mx-auto">
-          <button className="w-full cursor-pointer flex items-center justify-center rounded-full h-14 bg-primary text-background-dark shadow-elevated hover:bg-[#1fd465] hover:shadow-neon transition-all duration-200 active:scale-[0.97]">
+          <button 
+            onClick={() => navigate('/events')}
+            className="w-full cursor-pointer flex items-center justify-center rounded-full h-14 bg-primary text-background-dark shadow-elevated hover:bg-[#1fd465] hover:shadow-neon transition-all duration-200 active:scale-[0.97]"
+          >
             <span className="text-base font-bold tracking-wide mr-2">Entra in partita</span>
             <span className="material-symbols-outlined font-bold">arrow_forward</span>
           </button>

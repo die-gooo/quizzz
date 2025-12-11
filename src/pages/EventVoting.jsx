@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const cardsData = [
   {
@@ -150,11 +151,16 @@ const VotingCard = ({ card }) => {
 
 
 const EventVoting = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary selection:text-black antialiased">
       <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden pb-24 max-w-md mx-auto">
         <div className="sticky top-0 z-50 flex items-center bg-background-dark/95 backdrop-blur-md p-4 pb-2 justify-between border-b border-white/5">
-          <div className="text-white flex size-12 shrink-0 items-center justify-center rounded-full active:bg-white/10 transition-colors cursor-pointer">
+          <div 
+            onClick={() => navigate('/events')}
+            className="text-white flex size-12 shrink-0 items-center justify-center rounded-full active:bg-white/10 transition-colors cursor-pointer"
+          >
             <span className="material-symbols-outlined text-[24px]">arrow_back</span>
           </div>
           <h2 className="text-white text-lg font-bold leading-tight tracking-wide uppercase flex-1 text-center">Tavolo da Gioco</h2>
@@ -186,11 +192,13 @@ const EventVoting = () => {
         </div>
 
         <div className="fixed bottom-0 left-0 w-full p-4 bg-gradient-to-t from-background-dark via-background-dark/95 to-transparent z-40 max-w-md mx-auto">
-          <button className="w-full flex items-center justify-center gap-3 rounded-xl h-14 bg-[#1c2e24] border border-primary/20 text-white/50 text-base font-bold uppercase tracking-wider cursor-not-allowed">
+          <button 
+            onClick={() => navigate('/leaderboard')}
+            className="w-full flex items-center justify-center gap-3 rounded-xl h-14 bg-primary border border-primary/20 text-background-dark text-base font-bold tracking-wide shadow-elevated hover:shadow-neon transition-all duration-200 active:scale-95"
+          >
             <span>Concludi Turno</span>
-            <span className="material-symbols-outlined text-[20px]">lock</span>
+            <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
           </button>
-          <p className="text-center text-xs text-white/30 mt-3 font-medium">Completa tutte le carte per votare</p>
         </div>
       </div>
     </div>

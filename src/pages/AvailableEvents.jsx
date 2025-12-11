@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const events = [
   {
@@ -39,7 +40,7 @@ const events = [
   },
 ];
 
-const EventCard = ({ event }) => {
+const EventCard = ({ event, onVote }) => {
   const { status, statusIcon, title, date, participants, location, imageUrl, actionText, actionIcon, active } = event;
 
   const cardClasses = `group relative w-full bg-surface-dark rounded-2xl overflow-hidden shadow-card border border-white/5 transition-all duration-300 ${
@@ -91,6 +92,7 @@ const EventCard = ({ event }) => {
           </div>
         )}
         <button
+          onClick={() => active && onVote && onVote()}
           className={`w-full h-12 rounded-full flex items-center justify-center gap-2 transition-all duration-200 font-bold ${
             active
               ? 'bg-primary hover:bg-[#25d96d] text-background-dark text-[15px] tracking-wide shadow-elevated hover:shadow-neon active:scale-95'
@@ -110,6 +112,7 @@ const EventCard = ({ event }) => {
 const AvailableEvents = () => {
   const filters = ['Tutte', 'Da Votare', 'In Sospeso', 'Completate'];
   const [activeFilter, setActiveFilter] = React.useState('Tutte');
+  const navigate = useNavigate();
 
   return (
     <div className="font-display bg-background-light dark:bg-background-dark antialiased h-screen w-full overflow-hidden text-gray-900 dark:text-white select-none">
@@ -151,7 +154,7 @@ const AvailableEvents = () => {
 
           <div className="flex flex-col gap-4 px-5">
             {events.map((event, index) => (
-              <EventCard key={index} event={event} />
+              <EventCard key={index} event={event} onVote={() => navigate('/voting')} />
             ))}
             <div className="h-8"></div>
           </div>

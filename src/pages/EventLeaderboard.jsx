@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const podiumData = [
   {
@@ -131,6 +132,7 @@ const LeaderboardItem = ({ item }) => {
 const EventLeaderboard = () => {
   const filters = ['Tutto il tempo', 'Questo mese', 'Quest\'anno'];
   const [activeFilter, setActiveFilter] = React.useState(filters[0]);
+  const navigate = useNavigate();
 
   return (
     <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary selection:text-black min-h-screen">
@@ -181,11 +183,17 @@ const EventLeaderboard = () => {
 
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-sm">
           <nav className="flex items-center justify-between bg-[#1A2C23]/95 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 shadow-elevated">
-            <button className="flex flex-col items-center justify-center gap-1 text-white/50 hover:text-white transition-all duration-200 active:scale-95">
+            <button 
+              onClick={() => navigate('/')}
+              className="flex flex-col items-center justify-center gap-1 text-white/50 hover:text-white transition-all duration-200 active:scale-95"
+            >
               <span className="material-symbols-outlined text-[22px]">home</span>
               <span className="text-[10px] font-semibold">Home</span>
             </button>
-            <button className="flex items-center justify-center w-12 h-12 bg-primary rounded-full text-black shadow-neon -mt-8 border-4 border-[#102217] transform transition-all duration-200 hover:scale-105 active:scale-95">
+            <button 
+              onClick={() => navigate('/events')}
+              className="flex items-center justify-center w-12 h-12 bg-primary rounded-full text-black shadow-neon -mt-8 border-4 border-[#102217] transform transition-all duration-200 hover:scale-105 active:scale-95"
+            >
               <span className="material-symbols-outlined text-[28px]">add</span>
             </button>
             <button className="flex flex-col items-center justify-center gap-1 text-primary">
