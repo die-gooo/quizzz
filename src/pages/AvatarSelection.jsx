@@ -7,48 +7,54 @@ const avatars = [
     id: 1,
     name: 'Il Leader',
     trait: 'Carisma +10',
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDjg3CrDfAPAh75onLUkZYHybjQVknmMKuEQO_OFZNXi3f7XnsHkAtmwmB-hzzo0WxSG2Lo5ihg5uR0aDr6BQd9Av-zjNF_QOeF9vToChkDfYc9BL4_LeyeIXQTrgKmlYB5iOqc3YVEz2JN3Z4-7Hx5q9xBTHK4JoxlUvc-n3Sj-DQMMYVG1BefTojq2ofoCLbbswT2-3YRW5-lcMRxb1le8LtGCeHGWAiHKk-f9LYnt-xYRiEPLLf1I5CYtdLEcimUzRh7uQvyRHlA',
+    icon: 'military_tech',
+    color: 'bg-gradient-to-br from-yellow-500 to-orange-600',
     taken: true,
   },
   {
     id: 2,
     name: 'Il Jolly',
     trait: 'Imprevedibile',
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAT_85OGdw0i30o7gOmH949FR0f3CVjguPSCXb2wIekDvxtp5yy-HJDQsq0H7cF8fBy7HVN7fEvPo9De1X7Ku0wRn31ljesSulmQSOV3b23YuJeWVBGtirrPUOxUu1HxHhBZk3FeaSlTBh9Or1ySqv9IrudSWSoBLm-6eTWBB-C-Ds437xlmP3hyfa85OtKCH2VhZ5nhfFWPsuhpAdt4MexO16GPdTT_MWUWznRlRB8d4HaE-z07CPQaLCGUbqbKQs4TRiExyJ-vjQn',
+    icon: 'casino',
+    color: 'bg-gradient-to-br from-purple-500 to-pink-600',
     taken: false,
   },
   {
     id: 3,
     name: 'Il Gourmet',
     trait: 'Gusto raffinato',
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCBaYNUF6LOO0lpddrAO9bzBgNTfiRzijejjDTKAY4lM0WCJ-TwlEPLKyeJ_kyZOyAVX2cRB66fcfbvRNtHpNnp7nXM3h2l--RDwZgwbriv7Vn5Pnf6drskAw5gKdt8tM_o971lYoNBQqD8w0JApyvdR5E2k_vZGNisYFjAtxz8q2yg6zqpvz4YOQ8iYYDUxJnvu9Q-sjSvVRdPQmRyjUGcY07J9NJPYnVj8w34dJWuksILsfVb9VuIgdneqIcMcS5WiBlEGKty0z92',
+    icon: 'restaurant',
+    color: 'bg-gradient-to-br from-red-500 to-rose-600',
     taken: false,
   },
   {
     id: 4,
     name: 'L\'Intellettuale',
     trait: 'Sapere è potere',
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCyI3NKkB-vzoVB-fKFxYRckNBZj-NEieKPHXL4FBz-76Ckz-dqdKQF7OF6XQUbD5AtZEZCW6w1Yb__9gDbvYe2FTtIp5NVisIBwkAsKSxOV1LGWITD39y2-HDx46KMaujuSvIO0-CNDHgQIVwr1Un-DCeuj9hUBJ1OoFUNzLYY9PdUTv2ekSzqhzXV-dzzCiEVQDerLL9zjgMp9HAXovhMN9zxjR7ORppFe2zVRBm6qHp22E1bcRGH2ePhBefUdbAC9lg-DKVbCW0S',
+    icon: 'school',
+    color: 'bg-gradient-to-br from-blue-500 to-indigo-600',
     taken: false,
   },
   {
     id: 5,
     name: 'Il Festaiolo',
     trait: 'Anima della festa',
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB_yU_w1flO8EGm1Mk4K_vxH5cZOVxN2lpw0m66NRQ6CtWzfahstm4nstvwsmXN0B04YY_KvFjYx4Yy98k2QDfUCUViQXU0dhggsFFH8NVJx3xU_Dev__kTpb2gnaZy-XkkTw-JRpENlD5hp3voGG_zLs27BWS-QNDS5xUGwhSNtxC3gUBQ9nO1Av8mv2wgNSX9t84z_ugmWSTn0G7-D50rDbUw93crU4pd-3n7OcEKJZ-6-9moK7cXrfWA7PEz_BSvVnStoh-wtll1',
+    icon: 'celebration',
+    color: 'bg-gradient-to-br from-green-500 to-emerald-600',
     taken: false,
   },
   {
     id: 6,
     name: 'Lo Zen',
     trait: 'Calma interiore',
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD9q-UsQoD7oMhq84S1EcQ3bePqwB7qCZR1HKimrH7OhYWgTdKFxOJy7EoFNotWfJ0w9zpGCH9PSNPIp6orUIbFlMIKPDnolRgYiDsXOXczy30crycgJAmXAYQ2F12M-DPePNX3DIwabgdkKYxcRdUlO54Xf--gvlPH7NVLGp_tWxX27EcA98Y-iTvChVfq7pvZcy1VzlIOSp2pdxGQpN2PzI9Q-QVpHJM0HloU4XZC9dVBwf8JFSHiL6ct8I7d501eorhy5lZKVnpC',
+    icon: 'spa',
+    color: 'bg-gradient-to-br from-teal-500 to-cyan-600',
     taken: false,
   },
 ];
 
 const AvatarCard = ({ avatar, isSelected, onSelect }) => {
-  const { name, trait, imageUrl, taken } = avatar;
+  const { name, trait, icon, color, taken } = avatar;
 
   const cardClasses = `relative group cursor-pointer transition-all duration-300 ease-out ${
     isSelected ? 'scale-[1.03]' : 'hover:scale-[1.01]'
@@ -65,7 +71,7 @@ const AvatarCard = ({ avatar, isSelected, onSelect }) => {
         </div>
       )}
       <div
-        className={`relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-card-dark transition-all duration-300 ${
+        className={`relative aspect-[3/4] w-full overflow-hidden rounded-2xl transition-all duration-300 ${
           isSelected
             ? 'border-2 border-primary shadow-neon'
             : 'border border-white/10 shadow-card group-hover:border-white/25 group-hover:shadow-md'
@@ -79,14 +85,16 @@ const AvatarCard = ({ avatar, isSelected, onSelect }) => {
         {!isSelected && !taken && (
           <div className="absolute top-3 right-3 z-10 size-6 rounded-full border-2 border-white/25 bg-black/10 backdrop-blur-sm transition-all group-hover:border-white/40"></div>
         )}
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-          style={{ backgroundImage: `url("${imageUrl}")` }}
-        ></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent"></div>
+        <div className={`absolute inset-0 ${color} transition-transform duration-500 group-hover:scale-105`}></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
         {isSelected && (
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/35 via-transparent to-transparent opacity-60"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/25 via-transparent to-transparent opacity-60"></div>
         )}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="material-symbols-outlined text-white text-[80px] drop-shadow-lg" style={{ fontVariationSettings: "'FILL' 1" }}>
+            {icon}
+          </span>
+        </div>
         <div className="absolute bottom-3 left-3 right-3">
           <p className={`text-lg font-bold leading-tight mb-0.5 ${isSelected ? 'text-primary' : 'text-white'}`}>
             {name}
